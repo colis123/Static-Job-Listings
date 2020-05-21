@@ -1,36 +1,10 @@
 <template>
-  <div class="header">
-    <img
-      v-if="window.width < 380"
-      src=".././assets/bg-header-mobile.svg"
-      alt="Header Background"
-    />
-    <img
-      v-else
-      src=".././assets/bg-header-desktop.svg"
-      alt="Header Background"
-    />
-  </div>
+  <div class="header"></div>
 </template>
 
 <script>
 export default {
   name: "Header",
-  data() {
-    return {
-      window: {
-        width: 0,
-      },
-    };
-  },
-  created() {
-    window.addEventListener("resize", this.handleResize);
-  },
-  methods: {
-    handleResize() {
-      this.window.width = window.innerWidth;
-    },
-  },
 };
 </script>
 
@@ -38,8 +12,14 @@ export default {
 .header {
   height: 9.75rem;
   background: hsl(180, 29%, 50%);
+  background-image: url(".././assets/bg-header-desktop.svg");
+  background-position: center;
+  background-size: cover;
 }
 
-@media screen (min-width: 350px) {
+@media screen and (max-width: 400px) {
+  .header {
+    background-image: url(".././assets/bg-header-desktop.svg");
+  }
 }
 </style>
